@@ -42,7 +42,7 @@ function App() {
     }
 
     if (logs.length >= STUPID) {
-      alert("당신은 바보임이 증명되었습니다.");
+      alert(`바보 맞네 ㅋ [정답 : ${answer.join("")}]`);
       setIsCorrect(false);
       resetGame();
       return;
@@ -52,11 +52,11 @@ function App() {
       const tries = logs.length + 1;
       const moreText = "더".repeat(tries - (COUNT + 1));
       const message =
-        tries < 25
+        tries < STUPID
           ? `당신은 ${moreText} 바보입니까? ^^`
-          : "당신은 바보임이 증명되었습니다.🎊";
+          : `바보 맞네 ㅋ [정답 : ${answer.join("")}]`;
 
-      if (message === "당신은 바보임이 증명되었습니다.🎊") {
+      if (tries >= STUPID) {
         alert(message);
         resetGame();
         return;
